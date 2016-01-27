@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        <style type="text/css">
+            td {
+                border: 1 solid, black;
+                background-color: "blue";
+            }
+        </style>
+         <script>
+             var mes_valeurs = [10, 15, 20, 25, 30, 35];
+             display_cell = function(which) {
+                 var cell = document.querySelector("[id='" + which + "']");
+                 cell.innerHTML = mes_valeurs[which];
+                 //var histo = document.querySelector("[id='historique']");
+                 document.write(which);
+             }
+             
+             create_tab = function(nblignes, nbcolonnes) {
+                 var compteur = 0;
+                 text = "<table>";
+                 for (var ligne=0; ligne<nblignes; ligne++) {
+                     text += "<tr>";
+                     for (var colonne=0; colonne<nbcolonnes; colonne++) {
+                         text += "<td id='" + compteur + "' onclick='display_cell(" + compteur + ");'>50</td>";
+                         compteur ++;
+                     }
+                     text += "</tr>";
+                 }
+                 text += "</table>";
+                 return text;
+             }
+          </script>
+    </head>
+    <body onload="document.write(create_tab(5, 10));">
+        <p id="historique"></p>
+    </body>
+    </html>
+       
